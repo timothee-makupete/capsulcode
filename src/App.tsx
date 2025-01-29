@@ -65,7 +65,7 @@ function App() {
             </p>
             <br />
           
-            <div className="flex justify-center space-x-4 opacity-0 mt-[15%] animate-fade-in" style={{ animationDelay: '4s' }}>
+            <div className="flex justify-center space-x-4 opacity-0 mt-[15%] animate-fade-in" style={{ animationDelay: '6s' }}>
               <a href="#contact" className="btn-primary">
                 Get Started <ArrowRight className="h-5 w-5" />
               </a>
