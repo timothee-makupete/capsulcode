@@ -8,7 +8,7 @@ export function SignIn() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
       <ParticleBackground />
-      <div className="w-full max-w-md p-8 space-y-8 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-cyan-500/20">
+      <div className="w-full max-w-md p-8 space-y-8 bg-gray-900/50 backdrop-blur-xl rounded-lg border border-cyan-500/20">
         <div className="text-center">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
             {isSignIn ? 'Welcome Back' : 'Join CapsualCode'}

@@ -44,14 +44,21 @@ function App() {
               <span  className="bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">Future-Proof &nbsp;</span>
              
               <TypeWriter
-                text=" Your Digital Presence"
+                text=" Your Digital Presence&nbsp;"
                 speed={70}
                 delay={1400}
               />
+              <div>
+              <TypeWriter
+                text="with capsulcode cutting-edge technologies. "
+                speed={70}
+                delay={2000}
+              />
+              </div>
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto h-22">
               <TypeWriter
-                text="We craft cutting-edge web experiences that push the boundaries of what's possible. Your vision, our innovation."
+                text="We craft cutting-edge web experiences that push the boundaries of what's possible. Your vision, our innovation. In addition to custom web solutions, we also offer powerful software as a service (SaaS) to help businesses streamline operations and enhance productivity."
                 speed={10}
                 delay={2800}
               />
