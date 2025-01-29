@@ -39,27 +39,26 @@ function App() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden animate-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8">
+          <div className="text-center space-y-8 mt-[10%]">
             <h1 className="text-3xl md:text-5xl font-bold">
-              <TypeWriter
-                text="Future-Proof &nbsp;"
-                className="text-purple-400"
-                speed={70}
-              />
+              <span  className="bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">Future-Proof &nbsp;</span>
+             
               <TypeWriter
                 text=" Your Digital Presence"
                 speed={70}
                 delay={1400}
               />
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto h-22">
               <TypeWriter
                 text="We craft cutting-edge web experiences that push the boundaries of what's possible. Your vision, our innovation."
                 speed={10}
                 delay={2800}
               />
             </p>
-            <div className="flex justify-center space-x-4 opacity-0 animate-fade-in" style={{ animationDelay: '4s' }}>
+            <br />
+          
+            <div className="flex justify-center space-x-4 opacity-0 mt-[15%] animate-fade-in" style={{ animationDelay: '4s' }}>
               <a href="#contact" className="btn-primary">
                 Get Started <ArrowRight className="h-5 w-5" />
               </a>
@@ -70,7 +69,8 @@ function App() {
           </div>
         </div>
       </section>
-
+      <br />
+      <br />
       {/* Services Section */}
       <section id="services" className="py-20 animate-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
