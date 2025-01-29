@@ -15,7 +15,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center space-x-2">
               <Code2 className="h-8 w-8 text-cyan-400" />
               <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text animate-gradient">
-                CapsualCode
+                CapsulCode
               </span>
             </Link>
           </div>
