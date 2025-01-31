@@ -58,7 +58,7 @@ function App() {
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto h-22">
               <TypeWriter
-                text="We craft cutting-edge web experiences that push the boundaries of what's possible. Your vision, our innovation. In addition to custom web solutions, we also offer powerful software as a service (SaaS) to help businesses streamline operations and enhance productivity."
+                text="We craft cutting-edge web experiences that push the boundaries of what's possible. Your vision, our innovation."
                 speed={10}
                 delay={2800}
               />
