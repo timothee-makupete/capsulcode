@@ -5,7 +5,7 @@ import { ParticleBackground } from './components/ParticleBackground';
 import { LoadingScreen } from './components/LoadingScreen';
 import { TypeWriter } from './components/TypeWriter';
 import { ArrowRight, Code2, Cpu, Globe2, Sparkles, Users } from 'lucide-react';
-import { FiCode, FiLayout, FiSmartphone, FiUsers } from 'react-icons/fi';
+import {FiLayout, FiSmartphone, FiUsers } from 'react-icons/fi';
 import { useIntersectionObserver } from './hooks/useIntersectionObserver';
 
 function App() {
@@ -66,7 +66,7 @@ function App() {
             <br />
           
             <div className="flex justify-center space-x-4 opacity-0 mt-[15%] animate-fade-in" style={{ animationDelay: '6s' }}>
-              <a href="#contact" className="btn-primary">
+              <a href="#contact" className="btn-primary animate-pulse">
                 Get Started <ArrowRight className="h-5 w-5" />
               </a>
               <a href="#portfolio" className="btn-secondary">
@@ -82,12 +82,12 @@ function App() {
       <section id="services" className="py-20 animate-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-16">
-            <TypeWriter text="Our &nbsp;" speed={50} />
+            <TypeWriter text="Our &nbsp;" speed={70} delay={4800} />
             <TypeWriter
               text="Services"
               className="text-cyan-400"
-              speed={50}
-              delay={200}
+              speed={70}
+              delay={4800}
             />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

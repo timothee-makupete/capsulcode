@@ -23,7 +23,7 @@ export function ParticleBackground() {
       color: string;
 
       constructor() {
-        if (!canvas) throw new Error("Canvas is not available."); // Ensures TypeScript knows `canvas` is not null.
+        if (!canvas) throw new Error("Canvas is not available.");
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 0.5;
@@ -35,7 +35,7 @@ export function ParticleBackground() {
       }
 
       update() {
-        if (!canvas) return; // Guard in case `canvas` somehow becomes null.
+        if (!canvas) return;
         this.x += this.speedX;
         this.y += this.speedY;
 
