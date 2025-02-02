@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Menu, X, Code2 } from "lucide-react";
 import { Link } from "./Link";
-import { Routess } from "./Routess";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
-      <Routess/>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -25,6 +24,7 @@ export function Navbar() {
               <Link href="#portfolio">Portfolio</Link>
               <Link href="#testimonials">Testimonials</Link>
               <Link href="#contact">Contact</Link>
+              <button className="btn-primary px-2 py-2 rounded-lg">Get a Quote</button>
             </div>
           </div>
 
