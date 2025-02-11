@@ -1,5 +1,5 @@
 import { Github, Twitter, Linkedin, Mail, Facebook, Instagram } from "lucide-react";
-import { Link } from "./Link";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -30,19 +30,19 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#services">Services</Link>
+                <Link to="#services">Services</Link>
               </li>
               <li>
-                <Link href="#portfolio">Portfolio</Link>
+                <Link to="#portfolio">Portfolio</Link>
               </li>
               <li>
-                <Link href="#testimonials">Testimonials</Link>
+                <Link to="#testimonials">Testimonials</Link>
               </li>
               <li>
-                <Link href="#contact">Contact</Link>
+                <Link to="#contact">Contact</Link>
               </li>
               <li>
-                <Link href="#blog">Blog</Link>
+                <Link to="#blog">Blog</Link>
               </li>
             </ul>
           </div>
@@ -51,16 +51,16 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/privacy">Privacy Policy</Link>
+                <Link to="/privacy">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/terms">Terms of Service</Link>
+                <Link to="/terms">Terms of Service</Link>
               </li>
               <li>
-                <Link href="/cookies">Cookie Policy</Link>
+                <Link to="/cookies">Cookie Policy</Link>
               </li>
               <li>
-                <Link href="/disclaimer">Disclaimer</Link>
+                <Link to="/disclaimer">Disclaimer</Link>
               </li>
             </ul>
           </div>
@@ -69,16 +69,16 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">FAQ</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/faq">General Questions</Link>
+                <Link to="/faq">General Questions</Link>
               </li>
               <li>
-                <Link href="/signin">Pricing & Plans</Link>
+                <Link to="/signin">Pricing & Plans</Link>
               </li>
               <li>
-                <Link href="/faq">Technical Support</Link>
+                <Link to="/faq">Technical Support</Link>
               </li>
               <li>
-                <Link href="/faq">Getting Started</Link>
+                <Link to="/faq">Getting Started</Link>
               </li>
             </ul>
           </div>
@@ -86,22 +86,22 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <div className="flex space-x-4">
-              <Link href="https://github.com" className="hover:text-cyan-400">
+              <Link to="https://github.com" className="hover:text-cyan-400">
                 <Github className="h-6 w-6" />
               </Link>
-              <Link href="https://twitter.com" className="hover:text-cyan-400">
+              <Link to="https://twitter.com" className="hover:text-cyan-400">
                 <Twitter className="h-6 w-6" />
               </Link>
-              <Link href="https://linkedin.com" className="hover:text-cyan-400">
+              <Link to="https://linkedin.com" className="hover:text-cyan-400">
                 <Linkedin className="h-6 w-6" />
               </Link>
-              <Link href="mailto:capsulcodetechnologies@gmail.com" className="hover:text-cyan-400">
+              <Link to="mailto:capsulcodetechnologies@gmail.com" className="hover:text-cyan-400">
                 <Mail className="h-6 w-6" />
               </Link>
-              <Link href="https://facebook.com" className="hover:text-cyan-400">
+              <Link to="https://facebook.com" className="hover:text-cyan-400">
                 <Facebook className="h-6 w-6" />
               </Link>
-              <Link href="https://instagram.com" className="hover:text-cyan-400">
+              <Link to="https://instagram.com" className="hover:text-cyan-400">
                 <Instagram className="h-6 w-6" />
               </Link>
             </div>

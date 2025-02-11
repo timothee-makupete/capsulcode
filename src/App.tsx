@@ -8,8 +8,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="signin" element={<SignIn />} />
-        <Route path="privacy" element={<PrivacyPolicy />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );
