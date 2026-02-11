@@ -13,7 +13,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Code2 className="h-8 w-8 text-cyan-400" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text animate-gradient">
+              <span className="text-2xl font-bold text-cyan-400">
                 CapsulCode
               </span>
             </Link>
@@ -24,7 +24,7 @@ export function Navbar() {
               <Link href="#portfolio">Portfolio</Link>
               <Link href="#testimonials">Testimonials</Link>
               <Link href="#contact">Contact</Link>
-              <button className="btn-primary px-2 py-2 rounded-lg">Get a Quote</button>
+              <button className="btn-primary px-4 py-2">Get a Quote</button>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 backdrop-blur-lg">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
           <Link href="#services" className="block">
             Services
           </Link>
@@ -58,7 +58,7 @@ export function Navbar() {
           <Link href="#contact" className="block">
             Contact
           </Link>
-          <Link href="/signin" className="block btn-primary">
+          <Link href="/signin" className="block btn-primary px-4 py-2">
             Sign In
           </Link>
         </div>

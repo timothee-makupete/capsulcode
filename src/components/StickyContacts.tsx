@@ -5,7 +5,7 @@ const StickyContacts =()=>{
     return(
         <>
         {/* sticky contact icons */}
-        <div className="group fixed right-0 shadow w-[40px] animate-fade-in animate-fade-in hover:w-[150px] transition-all p-2 top-[40vh] z-50 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-l-xl"
+        <div className="group fixed right-0 shadow w-[40px] hover:w-[150px] transition-all p-2 top-[40vh] z-50 bg-cyan-600 hover:bg-cyan-500 rounded-l-xl"
           >
             <div className="flex flex-nowrap truncate ">
               <p>
@@ -22,7 +22,7 @@ const StickyContacts =()=>{
             </div>
           </div>
     
-          <div className="group fixed right-0 shadow w-[40px] animate-fade-in hover:w-[150px] transition-all p-2 top-[47vh] z-50 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-l-xl">
+          <div className="group fixed right-0 shadow w-[40px] hover:w-[150px] transition-all p-2 top-[47vh] z-50 bg-cyan-600 hover:bg-cyan-500 rounded-l-xl">
             <Link
               href="tel:+265992685747"
               className="text-white flex flex-nowrap truncate"
@@ -34,7 +34,7 @@ const StickyContacts =()=>{
             </Link>
           </div>
           
-          <div className="group fixed right-0 shadow w-[40px] animate-fade-in hover:w-[150px] transition-all p-2 top-[54vh] z-50 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-l-xl">
+          <div className="group fixed right-0 shadow w-[40px] hover:w-[150px] transition-all p-2 top-[54vh] z-50 bg-cyan-600 hover:bg-cyan-500 rounded-l-xl">
             <Link
               href="tel:+265991608070"
               className="text-white flex flex-nowrap truncate"

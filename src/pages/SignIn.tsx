@@ -8,10 +8,10 @@ export function SignIn() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
       <ParticleBackground />
-      <div className="w-full max-w-md p-8 space-y-8 bg-gray-900/50 backdrop-blur-xl rounded-lg border border-cyan-500/20">
+      <div className="w-full max-w-md p-8 space-y-8 bg-gray-800 rounded-lg border border-gray-700">
         <div className="text-center">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
-            {isSignIn ? 'Welcome Back' : 'Join CapsualCode'}
+          <h2 className="text-3xl font-bold text-cyan-400">
+            {isSignIn ? 'Welcome Back' : 'Join CapsulCode'}
           </h2>
           <p className="mt-2 text-gray-400">
             {isSignIn
@@ -27,7 +27,7 @@ export function SignIn() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full pl-10 pr-4 py-3 bg-black/50 border border-cyan-500/20 rounded-lg focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-white placeholder-gray-500"
+                className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors text-white placeholder-gray-400"
               />
             </div>
 
@@ -36,7 +36,7 @@ export function SignIn() {
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full pl-10 pr-4 py-3 bg-black/50 border border-cyan-500/20 rounded-lg focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-white placeholder-gray-500"
+                className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors text-white placeholder-gray-400"
               />
             </div>
 
@@ -46,7 +46,7 @@ export function SignIn() {
                 <input
                   type="password"
                   placeholder="Confirm Password"
-                  className="w-full pl-10 pr-4 py-3 bg-black/50 border border-cyan-500/20 rounded-lg focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-white placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors text-white placeholder-gray-400"
                 />
               </div>
             )}
@@ -54,7 +54,7 @@ export function SignIn() {
 
           <button
             type="submit"
-            className="w-full py-3 px-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-medium rounded-lg flex items-center justify-center space-x-2 transition-all duration-200 transform hover:scale-[1.02]"
+            className="w-full py-3 px-4 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg flex items-center justify-center space-x-2 transition-colors duration-200"
           >
             <span>{isSignIn ? 'Sign In' : 'Create Account'}</span>
             <ArrowRight className="h-5 w-5" />

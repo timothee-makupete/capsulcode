@@ -7,10 +7,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">
-              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text animate-gradient">
-                CapsulCode
-              </span>
+            <h3 className="text-xl font-bold text-cyan-400">
+              CapsulCode
             </h3>
             <p className="text-gray-400">
               Building the future of web development, one pixel at a time.
@@ -20,7 +18,7 @@ export function Footer() {
             </p>
             <form className="flex mt-4">
               <input type="email" placeholder="Enter your email" className="p-2 rounded-l bg-gray-800 text-white focus:outline-none" />
-              <button className="bg-cyan-500 px-4 py-2 rounded-r text-white">Subscribe</button>
+              <button className="bg-cyan-600 hover:bg-cyan-500 px-4 py-2 rounded-r text-white transition-colors">Subscribe</button>
             </form>
           </div>
 
@@ -111,9 +109,6 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-400">
             © {new Date().getFullYear()} CapsulCode. All rights reserved.
-          </p>
-          <p className="text-gray-400 mt-2">
-            Made with ❤️ by CapsulCode Team.
           </p>
         </div>
       </div>

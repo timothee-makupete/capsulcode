@@ -1,17 +1,56 @@
 import { LoadingScreen } from "../components/LoadingScreen";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ParticleBackground } from "../components/ParticleBackground";
 import { Navbar } from "../components/Navbar";
 import { TypeWriter } from "../components/TypeWriter";
-import { ArrowRight, Code2, Cpu, Globe2, Sparkles, Users } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Globe2, Users, Loader } from "lucide-react";
 import { FiLayout, FiSmartphone, FiUsers } from "react-icons/fi";
 import { Footer } from "../components/Footer";
 import StickyContacts from "../components/StickyContacts";
 import { motion } from "framer-motion";
+import studyHacks from "/Images/studyHacks.png";
+import scoolverse from "/Images/scoolverse.png"
+import school from "/Images/school.png"
+import hotel from "/Images/hotel.png"
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Landing =()=>{
     useIntersectionObserver();
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try {
+            await emailjs.send(
+                'service_ozb67p9', 
+                'template_1frrtjw',
+                {
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                    to_email: 'capsulcodetechnologies@gmail.com'
+                },
+                'V0EBQUGjyZpVkiCZu' 
+            );
+            toast.success('Message sent successfully!');
+            setName('');
+            setEmail('');
+            setMessage('');
+        } catch (error) {
+            console.error('Failed to send email:', error);
+            toast.error('Failed to send message. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     useEffect(() => {
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -43,8 +82,8 @@ const Landing =()=>{
           <section className="relative pt-32 pb-20 overflow-hidden animate-on-scroll">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center space-y-8 mt-[10%]">
-                <h1 className="text-3xl md:text-5xl font-bold">
-                  <span className="bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
+                <h1 className="text-3xl md:text-5xl font-bold text-white">
+                  <span className="text-cyan-400">
                     Future-Proof &nbsp;
                   </span>
     
@@ -70,10 +109,7 @@ const Landing =()=>{
                 </p>
                 <br />
     
-                <div
-                  className="flex justify-center space-x-4 opacity-0 mt-[15%] animate-fade-in"
-                  style={{ animationDelay: "6s" }}
-                >
+                <div className="flex justify-center space-x-4 mt-8">
                   <a href="#contact" className="btn-primary">
                     Get Started <ArrowRight className="h-5 w-5" />
                   </a>
@@ -89,7 +125,7 @@ const Landing =()=>{
           {/* Services Section */}
           <section id="services" className="py-20 animate-on-scroll">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-16">
+              <h2 className="text-4xl font-bold text-center mb-16 text-white">
                 <TypeWriter text="Our &nbsp;" speed={70} delay={4800} />
                 <TypeWriter
                   text="Services"
@@ -139,7 +175,7 @@ const Landing =()=>{
                 ].map((service, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 bg-gray-900/50 backdrop-blur-xl rounded-lg border border-cyan-500/20 hover:border-cyan-400  transform hover:scale-[1.02]"
+                    className="p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-cyan-500 transition-colors"
                     whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 50 }} transition={{ duration: 0.6, delay: 0.2 * index }}
                   >
                     <div className="mb-4">{service.icon}</div>
@@ -166,9 +202,9 @@ const Landing =()=>{
           {/* Portfolio Section */}
           <section
             id="portfolio"
-            className="py-20 bg-gradient-to-b from-black to-gray-900 animate-on-scroll"
+            className="py-20 bg-gray-900 animate-on-scroll"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="md:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-4xl font-bold text-center mb-16">
                 <TypeWriter text="Featured &nbsp;" speed={50} />
                 <TypeWriter
@@ -181,30 +217,38 @@ const Landing =()=>{
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {[
                   {
-                    title: "AI-Powered Analytics Dashboard",
-                    description: "Real-time data visualization platform",
-                    image:
-                      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                    title: "MSCE Chatbolt - AI Educational Web App",
+                    description: "An AI powered learning assistant for MSCE students with minimalistic UI and fast performance.",
+                    image: studyHacks
                   },
                   {
-                    title: "E-Commerce Platform",
-                    description: "Next-generation shopping experience",
-                    image:
-                      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                    title: "Aganyu",
+                    description: "A platform that people with reliable workers for any short term job.",
+                    image: school
+                  },
+                  {
+                    title: "Hotel Website",
+                    description: "A professional hotel website featuring room listing, pricing, hero sliders, and mordern hotel-themed UI.",
+                    image: hotel
+                  },
+                  {
+                    title: "Scoolverse - School Management System (SaaS)",
+                    description: "A mordern, cloud based school management system (Saas) designed to help schools digitize and streamline their operations.",
+                    image: scoolverse
                   },
                 ].map((project, index) => (
                   <div
                     key={index}
-                    className="group relative overflow-hidden rounded-lg border border-cyan-500/20"
+                    className="group relative overflow-hidden rounded-lg border border-gray-700"
                   >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover"
+                      className="w-full h-[40vh] object-fit"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent p-6 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-gray-400">{project.description}</p>
+                    <div className="absolute inset-0 bg-black/80 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                      <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+                      <p className="text-gray-300">{project.description}</p>
                     </div>
                   </div>
                 ))}
@@ -215,33 +259,33 @@ const Landing =()=>{
           {/* Testimonials Section */}
           <section id="testimonials" className="py-20 animate-on-scroll">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-16">
+              <h2 className="text-4xl font-bold text-center mb-16 text-white">
                 Client <span className="text-cyan-400">Testimonials</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
                   {
-                    name: "Sarah Johnson",
-                    role: "CEO, TechStart",
+                    name: "Sarah Mkandawire",
+                    role: "CEO, Takulandilani Lodge",
                     content:
                       "CapsualCode transformed our digital presence with their innovative solutions.",
                   },
                   {
-                    name: "Michael Chen",
-                    role: "CTO, DataFlow",
+                    name: "Harris Chimwaza",
+                    role: "Director, Hope private school",
                     content:
-                      "Their expertise in AI integration helped us achieve remarkable results.",
+                      "Their expertise in AI integration helped us achieve remarkable results in the institution.",
                   },
                   {
-                    name: "Emma Williams",
-                    role: "Founder, EcoTech",
+                    name: "Immran Katungwe",
+                    role: "Founder, Aganyu Connect",
                     content:
                       "Professional, responsive, and delivered beyond our expectations.",
                   },
                 ].map((testimonial, index) => (
                   <div
                     key={index}
-                    className="p-6 bg-gray-900/50 backdrop-blur-xl rounded-lg border border-cyan-500/20"
+                    className="p-6 bg-gray-800 rounded-lg border border-gray-700"
                   >
                     <div className="flex items-center mb-4">
                       <Users className="h-6 w-6 text-cyan-400 mr-2" />
@@ -260,38 +304,46 @@ const Landing =()=>{
           {/* Contact Section */}
           <section
             id="contact"
-            className="py-20 bg-gradient-to-b from-gray-900 to-black animate-on-scroll"
+            className="py-20 bg-gray-900 animate-on-scroll"
           >
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-16">
+              <h2 className="text-4xl font-bold text-center mb-16 text-white">
                 Get in <span className="text-cyan-400">Touch</span>
               </h2>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input
                     type="text"
                     placeholder="Name"
-                    className="w-full px-4 py-3 bg-black/50 border border-cyan-500/20 rounded-md focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors text-white placeholder-gray-400"
                   />
                   <input
                     type="email"
                     placeholder="Email"
-                    className="w-full px-4 py-3 bg-black/50 border border-cyan-500/20 rounded-md focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors text-white placeholder-gray-400"
                   />
                 </div>
                 <textarea
                   placeholder="Message"
                   rows={6}
-                  className="w-full px-4 py-3 bg-black/50 border border-cyan-500/20 rounded-md focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors text-white placeholder-gray-400"
                 ></textarea>
-                <button type="submit" className="w-full btn-primary">
-                  Send Message <Sparkles className="h-5 w-5" />
+                <button type="submit" className="w-full btn-primary" disabled={isLoading}>
+                  {isLoading && <Loader className="animate-spin h-4 w-4 mr-2 inline" />}
+                  {isLoading ? 'Sending Message' : 'Send Message'}
                 </button>
               </form>
             </div>
           </section>
     
           <Footer />
+          <ToastContainer theme="dark" position="top-right" />
         </div>
       );
 }
