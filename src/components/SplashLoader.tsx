@@ -15,10 +15,10 @@ const SplashLoader = ({ onComplete }: { onComplete: () => void }) => {
 
   useEffect(() => {
     if (currentLine < lines.length) {
-      const timer = setTimeout(() => setCurrentLine((p) => p + 1), 400);
+      const timer = setTimeout(() => setCurrentLine((p) => p + 1), 1000);
       return () => clearTimeout(timer);
     } else {
-      const timer = setTimeout(() => setFadeOut(true), 300);
+      const timer = setTimeout(() => setFadeOut(true), 400);
       return () => clearTimeout(timer);
     }
   }, [currentLine]);
@@ -44,7 +44,7 @@ const SplashLoader = ({ onComplete }: { onComplete: () => void }) => {
             <Terminal size={36} className="text-primary" />
           </div>
           {/* Glow ring */}
-          <div className="absolute inset-0 rounded-xl border-2 border-primary/20 animate-ping" style={{ animationDuration: "2s" }} />
+          <div className="absolute inset-0 rounded-xl border-2 border-primary/20 animate-ping" style={{ animationDuration: "1s" }} />
         </div>
         <h2 className="font-mono text-xl font-bold tracking-tight">
           <span className="text-primary">{"{ "}</span>
