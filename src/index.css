@@ -2,63 +2,176 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @layer base {
-  body {
-    @apply bg-black text-white antialiased;
+  :root {
+    --background: 220 40% 13%;
+    --foreground: 45 30% 90%;
+
+    --card: 220 35% 18%;
+    --card-foreground: 45 30% 90%;
+
+    --popover: 220 35% 18%;
+    --popover-foreground: 45 30% 90%;
+
+    --primary: 43 65% 55%;
+    --primary-foreground: 220 40% 10%;
+
+    --secondary: 220 35% 22%;
+    --secondary-foreground: 45 30% 90%;
+
+    --muted: 220 30% 20%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 43 65% 55%;
+    --accent-foreground: 220 40% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 25%;
+    --input: 220 30% 25%;
+    --ring: 43 65% 55%;
+
+    --radius: 0.5rem;
+
+    --glass-bg: 220 40% 18%;
+    --glass-border: 220 30% 30%;
+    --gold-gradient: linear-gradient(135deg, hsl(43 65% 55%), hsl(43 80% 70%), hsl(43 65% 55%));
+    --navy-gradient: linear-gradient(180deg, hsl(220 40% 10%), hsl(220 40% 16%));
+    --terminal-green: 142 70% 55%;
+
+    --sidebar-background: 220 40% 10%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 43 65% 55%;
+    --sidebar-primary-foreground: 220 40% 10%;
+    --sidebar-accent: 220 35% 22%;
+    --sidebar-accent-foreground: 45 30% 90%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 43 65% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -0.02em;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center space-x-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg transition-colors duration-200;
+  .glass-card {
+    @apply rounded-lg border backdrop-blur-md;
+    background: hsla(var(--glass-bg) / 0.6);
+    border-color: hsla(var(--glass-border) / 0.4);
+    box-shadow: 0 8px 32px hsla(220, 40%, 5%, 0.4);
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center space-x-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-gray-500 text-white font-medium rounded-lg transition-colors duration-200;
+  .glass-card:hover {
+    border-color: hsla(var(--primary) / 0.4);
+    box-shadow: 0 8px 32px hsla(43, 65%, 55%, 0.1);
+  }
+
+  .gold-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-border {
+    border-image: var(--gold-gradient) 1;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+
+  .terminal-prompt::before {
+    content: '$ ';
+    color: hsl(var(--terminal-green));
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .code-bracket {
+    color: hsl(var(--primary));
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+
+  .terminal-card {
+    @apply rounded-lg border overflow-hidden;
+    background: hsla(220, 40%, 8%, 0.9);
+    border-color: hsla(var(--glass-border) / 0.5);
+  }
+
+  .terminal-card-header {
+    @apply flex items-center gap-2 px-4 py-2.5 border-b;
+    background: hsla(220, 40%, 12%, 0.8);
+    border-color: hsla(var(--glass-border) / 0.3);
+  }
+
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
   }
 }
 
 @layer utilities {
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
   }
 
-  .section-show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
+  @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-}
 
-::-webkit-scrollbar {
-  width: 7px;
-}
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgb(156, 69, 156);
-  border-radius: 10px;
-}
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animate-typing {
+    animation: typing 2s steps(20) forwards;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
 }

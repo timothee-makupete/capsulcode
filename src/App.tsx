@@ -1,18 +1,39 @@
-import { SignIn } from "./pages/SignIn";
-import Landing from "./pages/Landing";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { PrivacyPolicy } from "./components/PrivacyPolicy";
+import { useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import SplashLoader from "@/components/SplashLoader";
+import Index from "./pages/Index.tsx";
+import Services from "./pages/Services.tsx";
+import About from "./pages/About.tsx";
+import Contact from "./pages/Contact.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
-function App() {
+const queryClient = new QueryClient();
+
+const App = () => {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="signin" element={<SignIn />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-      </Routes>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        {loading && <SplashLoader onComplete={() => setLoading(false)} />}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;

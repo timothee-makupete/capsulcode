@@ -1,68 +1,77 @@
 import { useState } from "react";
-import { Menu, X, Code2 } from "lucide-react";
-import { Link } from "./Link";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Terminal } from "lucide-react";
+import logo from "@/assets/logo.png";
 
-export function Navbar() {
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
-    <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b border-border/50" style={{ background: "hsla(220, 40%, 10%, 0.9)" }}>
+      <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Code2 className="h-8 w-8 text-cyan-400" />
-              <span className="text-2xl font-bold text-cyan-400">
-                CapsulCode
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="Capsulcode Technologies" className="h-9 w-9 rounded-md object-cover" />
+            <div className=" sm:flex items-center gap-1.5">
+              <span className="font-mono text-sm font-bold gold-text tracking-tight">
+                <span>&lt;</span> Capsulcode <span>/&gt;</span>
               </span>
-            </Link>
-          </div>
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
-              <Link href="#services">Services</Link>
-              <Link href="#portfolio">Portfolio</Link>
-              <Link href="#testimonials">Testimonials</Link>
-              <Link href="#contact">Contact</Link>
-              <button className="btn-primary px-4 py-2">Get a Quote</button>
             </div>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-4 py-2 rounded-md text-sm font-mono font-medium transition-all duration-200 ${
+                  location.pathname === link.path
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground/60 hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-foreground p-2"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-          <Link href="#services" className="block">
-            Services
-          </Link>
-          <Link href="#portfolio" className="block">
-            Portfolio
-          </Link>
-          <Link href="#testimonials" className="block">
-            Testimonials
-          </Link>
-          <Link href="#contact" className="block">
-            Contact
-          </Link>
-          <Link href="/signin" className="block btn-primary px-4 py-2">
-            Sign In
-          </Link>
-        </div>
+        {isOpen && (
+          <div className="md:hidden pb-4 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-2.5 rounded-md text-sm font-mono font-medium transition-colors ${
+                  location.pathname === link.path
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground/60 hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
