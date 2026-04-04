@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Code2, Layers, Braces, Cpu, Smartphone, Wrench, RefreshCw } from "lucide-react";
+import { Code2, Layers, Braces, Cpu, Smartphone, Wrench, RefreshCw, Palette } from "lucide-react";
 import serviceStatic from "@/assets/service-static-web.jpg";
 import serviceDynamic from "@/assets/service-dynamic-web.jpg";
 import serviceWebApp from "@/assets/service-web-app.jpg";
@@ -63,6 +63,14 @@ const allServices = [
     image: serviceDynamic,
     icon: RefreshCw,
     stack: ["Monitoring", "CI/CD", "Backups"],
+  },
+  {
+    name: "UI/UX Designing",
+    description: "Human-centered design services that transform complex workflows into intuitive, delightful user experiences. We conduct user research, build interactive prototypes in Figma, and validate designs through usability testing before a single line of code is written. Deliverables include wireframes, high-fidelity mockups, design systems, component libraries, and developer-ready handoff specs with precise spacing, typography, and color tokens.",
+    price: "MWK149,999.00",
+    image: serviceWebApp,
+    icon: Palette,
+    stack: ["Figma", "Prototyping", "User Research", "Design Systems"],
   },
 ];
 
